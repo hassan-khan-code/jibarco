@@ -3,7 +3,6 @@ import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import GallerySection from '../components/GallerySection';
 import InnovativeSolutions from '../components/InnovativeSolutions';
-import WhoWeAreSection from '../components/WhoWeAreSection';
 import WhatWeDoSection from '../components/WhatWeDoSection';
 import NewsletterSection from '../components/NewsletterSection';
 import ContactSection from '../components/ContactSection';
