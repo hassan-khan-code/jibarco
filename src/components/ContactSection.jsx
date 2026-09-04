@@ -15,6 +15,10 @@ const ContactSection = () => {
   const [showHours, setShowHours] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
 
+  // Encoded address for Al Khobar, Saudi Arabia
+  const mapAddress = encodeURIComponent("Prince Sultan Rd, Al Khobar Al Shamalia, Al Khobar 34428, Saudi Arabia");
+  const googleMapsUrl = `https://maps.google.com/?q=${mapAddress}`;
+
   return (
     <section className="py-24 bg-slate-50 relative overflow-hidden">
       {/* Glow Effects */}
@@ -63,7 +67,7 @@ const ContactSection = () => {
             {/* Quick CTAs */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://wa.me/966500000000" 
+                href="https://wa.me/966597337289" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-sm shadow-lg shadow-green-500/20 transition-all duration-300 hover:-translate-y-0.5"
@@ -182,15 +186,16 @@ const ContactSection = () => {
             </div>
           </motion.div>
 
-          {/* Right Side: High-End Visual Card */}
+          {/* Right Side: High-End Visual Card with Integrated Clean Map at the Bottom */}
           <motion.div 
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 relative flex"
+            className="lg:col-span-5 flex flex-col space-y-6"
           >
-            <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 min-h-[420px] flex flex-col justify-end">
+            {/* Top Professional Image Card */}
+            <div className="relative w-full rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-900 h-[260px] sm:h-[300px] flex flex-col justify-end">
               <img
                 src="/images/contact-img.webp"
                 alt="Engineering Professional"
@@ -198,16 +203,44 @@ const ContactSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
               
-              <div className="relative z-10 p-6 sm:p-8 m-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl">
+              <div className="relative z-10 p-5 sm:p-6 m-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-xl">
                 <span className="px-2.5 py-1 rounded-md bg-[#104068] text-white text-[10px] font-black uppercase tracking-wider">
                   Official Office
                 </span>
-                <h4 className="text-xl font-bold mt-2">Jibarco Engineering</h4>
-                <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+                <h4 className="text-lg font-bold mt-1.5">Jibarco Engineering</h4>
+                <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">
                   Visits during normal business hours are highly welcomed. Our team is ready to assist with project consultation.
                 </p>
               </div>
             </div>
+
+            {/* Bottom Compact Interactive Map */}
+            <div className="relative w-full h-[220px] sm:h-[240px] rounded-3xl overflow-hidden shadow-xl border border-slate-200 bg-slate-950 group">
+              <iframe
+                title="Jibarco Office Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.5186259040854!2d50.2104616!3d26.2818613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49e89324c4424b%3A0x6b1897c9b2e88a0e!2sPrince%20Sultan%20Rd%2C%20Al%20Khobar%20Al%20Shamalia%2C%20Al%20Khobar%2034428%2C%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1650000000000!5m2!1sen!2s"
+                className="w-full h-full border-0 filter grayscale-[25%] opacity-90 contrast-[1.05] group-hover:grayscale-0 transition-all duration-700"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+
+              {/* Floating Action Button - Get Directions Overlay */}
+              <div className="absolute top-4 left-4 z-20">
+                <a
+                  href={googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white/90 hover:bg-white text-slate-900 text-xs font-extrabold shadow-lg backdrop-blur-md border border-white/50 transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  <svg className="w-3.5 h-3.5 text-[#104068]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                  </svg>
+                  <span>Get Directions</span>
+                </a>
+              </div>
+            </div>
+
           </motion.div>
 
         </div>
@@ -215,82 +248,81 @@ const ContactSection = () => {
       </div>
 
       {/* "Drop us a line!" Pop-up Modal Form */}
- {/* "Drop us a line!" Pop-up Modal Form */}
-<AnimatePresence>
-  {isFormOpen && (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
-      <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.95 }}
-        className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-100 relative"
-      >
-        <h4 className="text-2xl font-bold text-slate-900 tracking-tight mb-6">Drop us a line!</h4>
-
-        <form onSubmit={(e) => { e.preventDefault(); setIsFormOpen(false); }} className="space-y-4">
-          <div>
-            <input 
-              type="text" 
-              placeholder="Name" 
-              className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068]" 
-            />
-          </div>
-
-          <div>
-            <input 
-              type="email" 
-              required 
-              placeholder="Email*" 
-              className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068]" 
-            />
-          </div>
-
-          <div>
-            <textarea 
-              rows="4" 
-              placeholder="Message" 
-              className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068] resize-y"
-            ></textarea>
-          </div>
-
-          {/* Attach Files section */}
-          <div className="flex items-center justify-between text-xs text-slate-500 py-1">
-            <label className="flex items-center gap-1.5 cursor-pointer hover:text-slate-800 transition-colors font-medium">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-              </svg>
-              <span>Attach Files</span>
-              <input type="file" multiple className="hidden" />
-            </label>
-            <span className="text-slate-400">Attachments (0)</span>
-          </div>
-
-          {/* reCAPTCHA disclaimer */}
-          <p className="text-[11px] text-slate-400 text-center leading-relaxed pt-2">
-            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
-          </p>
-
-          {/* Action Buttons */}
-          <div className="flex items-center justify-center gap-4 pt-2">
-            <button 
-              type="submit" 
-              className="px-8 py-3 rounded-full bg-[#104068] hover:bg-slate-900 text-white font-bold text-sm transition-all shadow-md"
+      <AnimatePresence>
+        {isFormOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-100 relative"
             >
-              Send
-            </button>
-            <button 
-              type="button" 
-              onClick={() => setIsFormOpen(false)}
-              className="text-slate-600 hover:text-slate-900 text-sm font-semibold underline underline-offset-2 transition-colors"
-            >
-              Cancel
-            </button>
+              <h4 className="text-2xl font-bold text-slate-900 tracking-tight mb-6">Drop us a line!</h4>
+
+              <form onSubmit={(e) => { e.preventDefault(); setIsFormOpen(false); }} className="space-y-4">
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="Name" 
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068]" 
+                  />
+                </div>
+
+                <div>
+                  <input 
+                    type="email" 
+                    required 
+                    placeholder="Email*" 
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068]" 
+                  />
+                </div>
+
+                <div>
+                  <textarea 
+                    rows="4" 
+                    placeholder="Message" 
+                    className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:outline-none focus:border-[#104068] resize-y"
+                  ></textarea>
+                </div>
+
+                {/* Attach Files section */}
+                <div className="flex items-center justify-between text-xs text-slate-500 py-1">
+                  <label className="flex items-center gap-1.5 cursor-pointer hover:text-slate-800 transition-colors font-medium">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                    </svg>
+                    <span>Attach Files</span>
+                    <input type="file" multiple className="hidden" />
+                  </label>
+                  <span className="text-slate-400">Attachments (0)</span>
+                </div>
+
+                {/* reCAPTCHA disclaimer */}
+                <p className="text-[11px] text-slate-400 text-center leading-relaxed pt-2">
+                  This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex items-center justify-center gap-4 pt-2">
+                  <button 
+                    type="submit" 
+                    className="px-8 py-3 rounded-full bg-[#104068] hover:bg-slate-900 text-white font-bold text-sm transition-all shadow-md"
+                  >
+                    Send
+                  </button>
+                  <button 
+                    type="button" 
+                    onClick={() => setIsFormOpen(false)}
+                    className="text-slate-600 hover:text-slate-900 text-sm font-semibold underline underline-offset-2 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </motion.div>
           </div>
-        </form>
-      </motion.div>
-    </div>
-  )}
-</AnimatePresence>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

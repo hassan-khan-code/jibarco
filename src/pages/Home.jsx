@@ -6,7 +6,6 @@ import InnovativeSolutions from '../components/InnovativeSolutions';
 import WhatWeDoSection from '../components/WhatWeDoSection';
 import NewsletterSection from '../components/NewsletterSection';
 import ContactSection from '../components/ContactSection';
-import MapLocationSection from '../components/MapLocationSection';
 
 const Home = () => {
   return (
@@ -18,7 +17,6 @@ const Home = () => {
       <WhatWeDoSection /> 
       <NewsletterSection />
       <ContactSection />
-      <MapLocationSection />
     </div>
   );
 };

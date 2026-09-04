@@ -5,37 +5,42 @@ const pillarCards = [
   {
     id: '01',
     category: 'SAFETY',
-    headline: 'Core Value & Operations',
+    headline: 'Core Value & Culture',
     image: '/images/gallary-2.webp',
     content: (
-      <p className="text-slate-600 text-sm leading-relaxed">
-        At <strong className="text-slate-900 font-bold">Jibarco</strong>, we recognize that the well-being of our people is of paramount importance, and we are committed to fostering a culture where health and safety are at the forefront of everything we do. Our dedication to maintaining a secure and healthy workplace extends beyond compliance - it's a core value that shapes our operations, decision-making, and daily work.
-      </p>
+      <div className="space-y-4 text-sm text-slate-600">
+        <div>
+          <h5 className="font-bold text-slate-900 mb-1">1. Prioritizing Well-Being</h5>
+          <p className="leading-relaxed">
+            At <strong className="text-slate-900">Jibarco</strong>, the well-being of our people is paramount. We foster a culture where health and safety are at the forefront of daily work.
+          </p>
+        </div>
+        <div>
+          <h5 className="font-bold text-slate-900 mb-1">2. Beyond Compliance</h5>
+          <p className="leading-relaxed">
+            Our dedication to a secure workplace extends well beyond standard regulations—it shapes our core operations and decision-making.
+          </p>
+        </div>
+      </div>
     ),
   },
   {
     id: '02',
     category: 'COMMITMENT',
-    headline: 'We are committed to the well-being of our people',
+    headline: 'Safety First & Training',
     image: '/images/gallary-3.webp',
     content: (
-      <div className="space-y-3 text-sm text-slate-600">
+      <div className="space-y-4 text-sm text-slate-600">
         <div>
-          <h5 className="font-bold text-slate-900">1. Safety First, Always</h5>
-          <p className="leading-relaxed mt-0.5">
-            At Jibarco, safety is not just a policy; it's a mindset. We believe in putting safety first in every task, ensuring that our people, suppliers, subcontractors, partners, and clients can trust that their health is our top priority.
+          <h5 className="font-bold text-slate-900 mb-1">1. Safety First, Always</h5>
+          <p className="leading-relaxed">
+            We believe in putting safety first in every task, ensuring clients, partners, and team members trust that their health is our top priority.
           </p>
         </div>
         <div>
-          <h5 className="font-bold text-slate-900">2. Comprehensive Training Programs</h5>
-          <p className="leading-relaxed mt-0.5">
-            We invest in comprehensive training programs to equip our team with the knowledge and skills needed to perform their roles safely. From onboarding to ongoing professional development, we prioritize education to create a safety-conscious culture.
-          </p>
-        </div>
-        <div>
-          <h5 className="font-bold text-slate-900">3. State-of-the-Art Facilities</h5>
-          <p className="leading-relaxed mt-0.5">
-            Our facilities are designed with safety in mind. We implement the latest technologies and adhere to industry standards to create work environments that minimize risks and promote well-being.
+          <h5 className="font-bold text-slate-900 mb-1">2. Comprehensive Programs</h5>
+          <p className="leading-relaxed">
+            We invest in thorough training programs from onboarding to ongoing professional development to create a safety-conscious team.
           </p>
         </div>
       </div>
@@ -44,20 +49,20 @@ const pillarCards = [
   {
     id: '03',
     category: 'ACTIONS',
-    headline: 'Health and Safety in Action',
+    headline: 'Proactive Risk Management',
     image: '/images/gallary-4.webp',
     content: (
-      <div className="space-y-3 text-sm text-slate-600">
+      <div className="space-y-4 text-sm text-slate-600">
         <div>
-          <h5 className="font-bold text-slate-900">4. Proactive Risk Management</h5>
-          <p className="leading-relaxed mt-0.5">
-            We actively identify and assess potential risks, implementing preventive measures to mitigate hazards before they become issues. Our goal is to create a workplace where everyone feels confident and secure in their tasks.
+          <h5 className="font-bold text-slate-900 mb-1">1. Proactive Mitigation</h5>
+          <p className="leading-relaxed">
+            We actively identify potential risks and implement preventive measures to address hazards before they become operational issues.
           </p>
         </div>
         <div>
-          <h5 className="font-bold text-slate-900">5. Empowering Our Team</h5>
-          <p className="leading-relaxed mt-0.5">
-            We empower our people to take an active role in their safety and the safety of those around them. Open communication channels, regular safety meetings, and a culture of accountability contribute to a collective effort in maintaining a secure work environment.
+          <h5 className="font-bold text-slate-900 mb-1">2. Empowering Our Team</h5>
+          <p className="leading-relaxed">
+            Through open communication channels and accountability, we empower every individual to take an active role in workplace safety.
           </p>
         </div>
       </div>
@@ -66,20 +71,20 @@ const pillarCards = [
   {
     id: '04',
     category: 'PROMISE',
-    headline: 'Our Promise to You',
+    headline: 'Continuous Improvement',
     image: '/images/gallary-5.webp',
     content: (
-      <div className="space-y-3 text-sm text-slate-600">
+      <div className="space-y-4 text-sm text-slate-600">
         <div>
-          <h5 className="font-bold text-slate-900">6. Continuous Improvement</h5>
-          <p className="leading-relaxed mt-0.5">
-            Our commitment to health and safety is ongoing. We regularly review and enhance our policies, procedures, and practices to adapt to emerging best practices and industry standards.
+          <h5 className="font-bold text-slate-900 mb-1">1. Ongoing Enhancement</h5>
+          <p className="leading-relaxed">
+            Our commitment is ongoing. We regularly review policies and practices to adapt to emerging industry standards and best practices.
           </p>
         </div>
         <div>
-          <h5 className="font-bold text-slate-900">7. Reporting and Response</h5>
-          <p className="leading-relaxed mt-0.5">
-            We encourage open communication regarding safety concerns. Our reporting systems are designed to facilitate swift responses, ensuring that any potential issues are addressed promptly and effectively.
+          <h5 className="font-bold text-slate-900 mb-1">2. Swift Reporting</h5>
+          <p className="leading-relaxed">
+            Our structured reporting systems facilitate swift responses, ensuring safety concerns are handled promptly and effectively.
           </p>
         </div>
       </div>
@@ -150,7 +155,7 @@ const WhatWeDoSection = () => {
                 </div>
               </div>
 
-              {/* Body Content Area */}
+              {/* Body Content Area - Perfectly Balanced */}
               <div className="p-6 sm:p-8 flex-1 bg-white border-t border-slate-100 flex flex-col justify-between">
                 {card.content}
               </div>
