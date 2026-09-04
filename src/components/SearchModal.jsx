@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const searchableData = [
-  { title: "Infrastructure Engineering Services", path: "/what-we-do", category: "Services" },
-  { title: "About Jibarco Leadership & Team", path: "/who-we-are", category: "About" },
-  { title: "Career Opportunities & Jobs", path: "/careers", category: "Careers" },
-  { title: "Latest Press Releases & News", path: "/news", category: "News" },
-  { title: "Contact Sales & Support", path: "/contact", category: "Contact" },
+  // Homepage Sections (Smooth Scroll targets)
+  { title: "Who We Are? - About Company & Leadership", sectionId: "who-we-are", category: "About" },
+  { title: "What We Do? - Infrastructure & Engineering Services", sectionId: "what-we-do", category: "Services" },
+
+  // Actual Route Pages
+  { title: "Latest Press Releases & Company News", path: "/news", category: "News" },
+  { title: "Career Opportunities & Open Positions", path: "/careers", category: "Careers" },
+  { title: "Contact Sales & Customer Support", path: "/contact", category: "Contact" },
+  { title: "Office Location & Working Hours", path: "/contact", category: "Location" },
 ];
 
 const SearchModal = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   if (!isOpen) return null;
 
@@ -18,6 +24,29 @@ const SearchModal = ({ isOpen, onClose }) => {
     item.title.toLowerCase().includes(query.toLowerCase()) || 
     item.category.toLowerCase().includes(query.toLowerCase())
   );
+
+  // Handle click for section scrolling vs page navigation
+  const handleSelectResult = (item) => {
+    onClose();
+    if (item.sectionId) {
+      if (location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.getElementById(item.sectionId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 200);
+      } else {
+        const element = document.getElementById(item.sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else if (item.path) {
+      navigate(item.path);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20">
@@ -58,11 +87,10 @@ const SearchModal = ({ isOpen, onClose }) => {
           )}
 
           {filteredResults.map((result, idx) => (
-            <Link
+            <div
               key={idx}
-              to={result.path}
-              onClick={onClose}
-              className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-xl transition-colors group"
+              onClick={() => handleSelectResult(result)}
+              className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-xl transition-colors group cursor-pointer"
             >
               <span className="text-xs font-bold text-slate-700 group-hover:text-[#104068]">
                 {result.title}
@@ -70,7 +98,7 @@ const SearchModal = ({ isOpen, onClose }) => {
               <span className="text-[10px] font-semibold bg-blue-50 text-[#104068] px-2.5 py-1 rounded-full">
                 {result.category}
               </span>
-            </Link>
+            </div>
           ))}
         </div>
 
