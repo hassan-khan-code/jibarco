@@ -70,14 +70,14 @@ const Navbar = () => {
               onClick={() => handleScrollToSection('who-we-are')}
               className="text-sm font-semibold text-slate-600 hover:text-[#104068] transition-all duration-200 py-1"
             >
-              Who We Are?
+              Who We Are
             </button>
 
             <button 
               onClick={() => handleScrollToSection('what-we-do')}
               className="text-sm font-semibold text-slate-600 hover:text-[#104068] transition-all duration-200 py-1"
             >
-              What We Do?
+              What We Do
             </button>
 
             <Link 
