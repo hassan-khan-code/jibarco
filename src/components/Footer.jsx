@@ -100,8 +100,8 @@ const Footer = () => {
           <div className="lg:col-span-4 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Headquarters</h4>
             <div className="space-y-3 text-xs">
-              <p className="text-slate-300 leading-relaxed" dir="rtl">
-                شارع الامير سلطان تقاطع، الشارع العاشر، حي الخبر الشمالية، الخبر 34428، السعودية
+              <p className="text-slate-300 leading-relaxed">
+                Prince Sultan Road, 10th Street Intersection, Al Khobar Al Shamalia, Al Khobar 34428, Saudi Arabia
               </p>
               <div>
                 <p className="text-slate-500 text-[11px] font-medium">Direct Contact</p>

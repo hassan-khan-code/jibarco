@@ -73,8 +73,8 @@ const CareerContactForm = () => {
 
             <div className="space-y-3 pt-2">
               <h4 className="text-sm font-bold text-slate-900">Jibarco</h4>
-              <p className="text-xs text-slate-600 leading-relaxed" dir="rtl">
-                الامير طلال بن عبد العزيز، 3511، حي الخبر الشمالية، الخبر 34427، السعودية
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Prince Talal Bin Abdulaziz Street, 3511, Al Khobar Al Shamalia, Al Khobar 34427, Saudi Arabia
               </p>
               <a 
                 href="mailto:Faisal.Salem@jibarco.com" 
